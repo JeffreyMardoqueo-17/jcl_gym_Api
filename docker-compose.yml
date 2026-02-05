@@ -1,6 +1,6 @@
 services:
   api-gym:
-    image: ghcr.io/jeffreymardoqueo-17/jcl_gym_api:latest
+    image: ${IMAGE_NAME}:latest
     container_name: gym_backend
     restart: always
     environment:
@@ -9,7 +9,7 @@ services:
     ports:
       - "8080:8080"
     depends_on:
-      - db-gym
+      - db-gym 
 
   db-gym:
     image: postgres:15-alpine

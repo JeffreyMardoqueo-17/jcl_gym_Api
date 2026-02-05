@@ -83,9 +83,10 @@ jobs:
 
       - name: Pull and Run with Docker Compose
         run: |
-          # Actualizar el código y descargar la nueva imagen
+          export IMAGE_NAME=$(echo "${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}" | tr '[:upper:]' '[:lower:]')
+          # descargar cambios
           docker compose pull
-          # Levantar los contenedores (API y Postgres)
+          # levantar contenedores
           docker compose up -d
-          # Limpiar imágenes antiguas para no llenar el disco de la laptop
+          # eliminar imagenes antiguas 
           docker image prune -f
