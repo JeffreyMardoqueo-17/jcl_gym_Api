@@ -14,10 +14,12 @@ services:
   db-gym:
     image: postgres:15-alpine
     container_name: gym_db
+    user: "1000:1000"
     restart: always
     environment:
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: user123$
       POSTGRES_DB: gym_db
+      PGDATA: /var/lib/postgresql/data/pgdata
     volumes:
       - ./postgres_data:/var/lib/postgresql/data
