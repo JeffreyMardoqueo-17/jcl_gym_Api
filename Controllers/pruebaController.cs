@@ -16,7 +16,7 @@ namespace jcl_gym_Api.Controllers
             var fechaElSalvador = TimeZoneInfo.ConvertTime(DateTime.UtcNow, timeZone);
             return Ok(new
             {
-                Mensaje = "Esto es una prueba",
+                Mensaje = "Esto es una prueba 1",
                 FechaElSalvador = fechaElSalvador.ToString("dd-MM-yyyy") 
             });
         }
