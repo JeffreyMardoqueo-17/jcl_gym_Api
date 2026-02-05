@@ -84,6 +84,12 @@ jobs:
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
 
+      - name: Fix Postgres Permissions
+        run: |
+          mkdir -p postgres_data
+          sudo chown -R 1000:1000 postgres_data
+          sudo chmod -R 775 postgres_data
+
       - name: Pull and Run with Docker Compose
         run: |
           LOWER_IMAGE=$(echo "${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}" | tr '[:upper:]' '[:lower:]')
