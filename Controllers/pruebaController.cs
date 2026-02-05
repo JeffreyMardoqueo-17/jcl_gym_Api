@@ -18,7 +18,7 @@ namespace jcl_gym_Api.Controllers
             return Ok(new
             {
                 Mensaje = "Esto es una prueba",
-                FechaElSalvador = fechaElSalvador.ToString("dd-MM-yyyy") // solo día-mes-año
+                FechaElSalvador = fechaElSalvador.ToString("dd-MM-yyyy") 
             });
         }
     }
