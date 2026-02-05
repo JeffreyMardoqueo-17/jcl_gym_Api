@@ -83,10 +83,9 @@ jobs:
 
       - name: Pull and Run with Docker Compose
         run: |
-          export IMAGE_NAME=$(echo "${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}" | tr '[:upper:]' '[:lower:]')
-          # descargar cambios
-          docker compose pull
-          # levantar contenedores
-          docker compose up -d
-          # eliminar imagenes antiguas 
-          docker image prune -f
+         LOWER_IMAGE=$(echo "${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}" | tr '[:upper:]' '[:lower:]')
+          
+         IMAGE_NAME=$LOWER_IMAGE docker compose pull
+         IMAGE_NAME=$LOWER_IMAGE docker compose up -d
+          
+         docker image prune -f
