@@ -11,7 +11,7 @@ namespace jcl_gym_Api.Controllers
         [HttpGet]
         public IActionResult Get()
         {
-            // Configurar zona horaria de El Salvador
+            // esto solo muestr la fecha de ek salvador
             var timeZone = TimeZoneInfo.FindSystemTimeZoneById("Central Standard Time");
             var fechaElSalvador = TimeZoneInfo.ConvertTime(DateTime.UtcNow, timeZone);
             return Ok(new
