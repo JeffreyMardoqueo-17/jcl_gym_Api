@@ -9,7 +9,7 @@ on:
 
 env:
   REGISTRY: ghcr.io
-  IMAGE_NAME: ${{ github.repository }}
+  IMAGE_NAME: jeffreymardoqueo-17/jcl_gym_api
 
 jobs:
   build:
@@ -45,8 +45,6 @@ jobs:
         uses: docker/metadata-action@v5.0.0
         with:
           images: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}
-          flavor: |
-            lowercase=true
 
       - name: Build and push Docker image
         id: build-and-push
